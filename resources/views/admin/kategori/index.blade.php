@@ -19,13 +19,18 @@
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                     <li class="breadcrumb-item active">Kategori</li>
                 </ol>
-                <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</button>
             </div>
         </div>
     </div>
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Table Kategori</h4>
+            @if (session('message'))
+                <div class="alert alert-success">{{  session('message') }}</div>
+            @endif
+            <h4 class="card-title">
+                Table Kategori
+                <a href="{{ url('admin/kategori/create') }}" class="btn btn-info float-right"><i class="fa fa-plus-circle"></i> Tambah Kategori</a>
+            </h4>
             <h6 class="card-subtitle">Daftar list kategori</h6>
             <div class="table-responsive m-t-40">
                 <table id="myTable" class="table table-bordered table-striped">
@@ -34,82 +39,26 @@
                             <th>No</th>
                             <th>ID</th>
                             <th>Nama</th>
+                            <th>Sub Nama</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @forelse ($kategori as $kategori_item)
+                            
                         <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Tiger Nixon</td>
-                            <td>Tiger Nixon</td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $kategori_item->id }}</td>
+                            <td>{{ $kategori_item->nama }}</td>
+                            <td>{{ $kategori_item->sub_nama }}</td>
+                            <td>
+                                <a href="{{ url('admin/kategori/'.$kategori_item->id.'/edit') }}" class="btn btn-success"><i class="fa fa-edit"></i>&nbsp Edit</a>
+                                <a href="#" data-nama="{{ $kategori_item->nama }}" data-id="{{ $kategori_item->id }}" class="btn btn-danger confirm-delete"><i class="fa fa-trash-alt"></i>&nbsp Delete</a>
+                            </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>1</td>
-                            <td>Tiger Nixon</td>
-                            <td>Tiger Nixon</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>1</td>
-                            <td>Tiger Nixon</td>
-                            <td>Tiger Nixon</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Tiger Nixon</td>
-                            <td>Tiger Nixon</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Tiger Nixon</td>
-                            <td>Tiger Nixon</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Tiger Nixon</td>
-                            <td>Tiger Nixon</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Tiger Nixon</td>
-                            <td>Tiger Nixon</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Tiger Nixon</td>
-                            <td>Tiger Nixon</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Tiger Nixon</td>
-                            <td>Tiger Nixon</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Tiger Nixon</td>
-                            <td>Tiger Nixon</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Tiger Nixon</td>
-                            <td>Tiger Nixon</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Tiger Nixon</td>
-                            <td>Tiger Nixon</td>
-                        </tr>
+                        @empty
+                            
+                        @endforelse
                     </tbody>
                 </table>
             </div>
@@ -170,6 +119,31 @@
             });
             $('.buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel').addClass('btn btn-primary mr-1');
         });
+
+        //examples 
+        $(".confirm-delete").click(function () {
+            var kategori_id = $(this).attr('data-id');
+            var kategori_nama = $(this).attr('data-nama');
+            Swal.fire({
+                title: 'Apakah Kamu Yakin?',
+                text: "Hapus kategori dengan nama ["+kategori_nama+"] ini!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    window.location= "/admin/kategori/"+kategori_id+""
+                    Swal.fire(
+                        'Terhapus!',
+                        'File berhasil dihapus.',
+                        'success'
+                    )
+                }
+            })
+        });
+        
     </script>
 
 @endpush

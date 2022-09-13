@@ -21,8 +21,8 @@
     <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
     <link href="{{ asset('dist/css/pages/dashboard1.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ ('../assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ ('../assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ ('../../assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ ('../../assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css') }}">
     <!-- Custom CSS -->
     <!-- HTML5 Shim and Respond.js') }} IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js') }} doesn't work if you view the page via file:// -->
@@ -184,6 +184,10 @@
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
     <!-- end - This is for export functionality only -->
+
+    <!-- Sweet-Alert  -->
+    <script src="{{ asset('../assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
+    <script src="{{ asset('../assets/node_modules/sweetalert2/sweet-alert.init.js') }}"></script>
 
     @stack('script')
 </body>

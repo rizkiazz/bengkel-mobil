@@ -23,15 +23,15 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
-
     //dashboard
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
-
     //kategori
     Route::controller(App\Http\Controllers\Admin\KategoriController::class)->group(function () {
         Route::get('/kategori', 'index');
         Route::get('/kategori/create', 'create');
+        Route::post('/kategori', 'store');
+        Route::get('/kategori/{kategori}/edit', 'edit');
+        Route::put('/kategori/{kategori}', 'update');
+        Route::get('/kategori/{kategori}', 'destroy');
     });
-
-
 });
