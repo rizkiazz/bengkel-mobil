@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg custom_nav-container ">
     <a class="navbar-brand" href="{{ url('/') }}">
-        <span>Bengkel Mobil</span>
+        <span>Rizki Jaya Mobil</span>
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,10 +25,10 @@
                 <a class="nav-link" href="{{ url('/contact') }}">Contact Us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link bg-primary mr-2 rounded-2" href="{{ url('/') }}">Login</a>
+                <a class="nav-link bg-primary mr-2 rounded-2" href="{{ route('login') }}">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link bg-success rounded-2" href="{{ url('/') }}">Sign Up</a>
+                <a class="nav-link bg-success rounded-2" href="{{ route('register') }}">Sign Up</a>
             </li>
         </ul>
         <div class="quote_btn-container">

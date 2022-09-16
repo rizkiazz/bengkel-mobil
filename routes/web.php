@@ -41,4 +41,16 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::put('/kategori/{kategori}', 'update');
         Route::get('/kategori/{kategori}', 'destroy');
     });
+    Route::controller(App\Http\Controllers\Admin\KendaraanController::class)->group(function () {
+        Route::get('/kendaraan', 'index');
+        Route::get('/kendaraan/create', 'create');
+        Route::post('/kendaraan', 'store');
+        Route::get('/kendaraan/{kendaraan}/edit', 'edit');
+        Route::put('/kendaraan/{kendaraan}', 'update');
+        Route::get('/kendaraan/{kendaraan}', 'destroy');
+    });
+
+    Route::controller(App\Http\Controllers\Admin\SukuCadangController::class)->group(function (){
+        Route::get('/suku-cadang', 'index')
+;    });
 });

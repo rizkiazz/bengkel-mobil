@@ -16,7 +16,12 @@
                         <li><a href="{{ url('admin/kategori') }}">Daftar Kategori </a></li>
                     </ul>
                 </li>
-                <li> <a class="waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Pelanggan</a></li>
+                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Kendaraan <span class="badge badge-pill badge-cyan ml-auto">4</span></span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="{{ url('admin/kendaraan/create') }}">Tambah Kendaraan </a></li>
+                        <li><a href="{{ url('admin/kendaraan') }}">Daftar Kendaraan </a></li>
+                    </ul>
+                </li>
                 <li> <a class="waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Kendaraan</a></li>
                 <li> <a class="waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Suku Cadang</a></li>
                 <li> <a class="waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Supplier</a></li>
