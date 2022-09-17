@@ -51,6 +51,19 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     });
 
     Route::controller(App\Http\Controllers\Admin\SukuCadangController::class)->group(function (){
-        Route::get('/suku-cadang', 'index')
-;    });
+        Route::get('/suku-cadang', 'index');
+        Route::get('/suku-cadang/create', 'create');
+        Route::post('/suku-cadang', 'store');
+        Route::get('/suku-cadang/{suku_cadang}/edit', 'edit');
+        Route::put('/suku-cadang/{suku_cadang}', 'update');
+        Route::get('/suku-cadang/{suku_cadang}', 'destroy');
+    });
+    Route::controller(App\Http\Controllers\Admin\ServiceController::class)->group(function (){
+        Route::get('/service', 'index');
+        Route::get('/service/create', 'create');
+        Route::post('/service', 'store');
+        Route::get('/service/{service}/edit', 'edit');
+        Route::put('/service/{service}', 'update');
+        Route::get('/service/{service}', 'destroy');
+    });
 });
