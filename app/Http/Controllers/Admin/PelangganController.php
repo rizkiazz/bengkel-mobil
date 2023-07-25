@@ -33,8 +33,8 @@ class PelangganController extends Controller
         $pelanggan->no_polisi = $validatedData['no_polisi'];
         $pelanggan->alamat = $validatedData['alamat'];
         $pelanggan->handphone = $validatedData['handphone'];
-        $pelanggan->status = $request->status == true ? 1 : 0;
-        dd($pelanggan);
+        $pelanggan->status = $validatedData['status'];
+        // dd($pelanggan);
 
         $pelanggan->save();
 
@@ -51,24 +51,24 @@ class PelangganController extends Controller
     }
     public function update(PelangganRequest $request, int $pelanggan_id)
     {
-        // $validatedData = $request->validated();
-        // $pelanggan = Pelanggan::findOrFail($pelanggan_id)->first();
-        // $pelanggan->nama = $validatedData['nama'];
-        // $pelanggan->tipe = $validatedData['tipe'];
-        // $pelanggan->jenis_mobil = $validatedData['jenis_mobil'];
-        // $pelanggan->merek = $validatedData['merek'];
-        // $pelanggan->no_polisi = $validatedData['no_polisi'];
-        // $pelanggan->alamat = $validatedData['alamat'];
-        // $pelanggan->handphone = $validatedData['handphone'];
-        // $pelanggan->status = $request->status == 'status' ? 0 : 1;
-        // $pelanggan->update();
+        $validatedData = $request->validated();
+        $pelanggan = Pelanggan::findOrFail($pelanggan_id)->first();
+        $pelanggan->nama = $validatedData['nama'];
+        $pelanggan->tipe = $validatedData['tipe'];
+        $pelanggan->jenis_mobil = $validatedData['jenis_mobil'];
+        $pelanggan->merek = $validatedData['merek'];
+        $pelanggan->no_polisi = $validatedData['no_polisi'];
+        $pelanggan->alamat = $validatedData['alamat'];
+        $pelanggan->handphone = $validatedData['handphone'];
+        $pelanggan->status = $validatedData['status'];
+        $pelanggan->update();
 
 
         return redirect('admin/pelanggan')->with('message', 'Pelanggan baru berhasil di update');
     }
     public function destroy(int $pelanggan_id)
     {
-        $pelanggan = Pelanggan::findOrFail($pelanggan_id)->first();
+        $pelanggan = Pelanggan::findOrFail($pelanggan_id);
         $pelanggan->delete();
 
         return redirect('admin/pelanggan')->with('message', 'Pelanggan baru berhasil di hapus');

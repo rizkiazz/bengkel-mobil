@@ -154,20 +154,20 @@
                                             <div class="input-group">
                                                 <ul class="icheck-list">
                                                     <li class="d-inline-block">
-                                                        <input type="radio" class="check" name="square-radio" id="minimal-checkbox-1" data-radio="iradio_square-green">
+                                                        <input type="radio" class="check" name="status" value="0" id="minimal-checkbox-1" data-radio="iradio_square-green">
                                                         <label class="mr-3" for="minimal-checkbox-1">Pending</label>
                                                     </li>
                                                     <li class="d-inline-block">
-                                                        <input type="radio" class="check" name="square-radio" id="minimal-checkbox-2" data-radio="iradio_square-green">
+                                                        <input type="radio" class="check" name="status" value="1" id="minimal-checkbox-2" data-radio="iradio_square-green">
                                                         <label class="mr-3" for="minimal-checkbox-2">Process</label>
                                                     </li>
                                                     <li class="d-inline-block">
-                                                        <input type="radio" class="check" name="square-radio" id="minimal-checkbox-3" data-radio="iradio_square-green">
+                                                        <input type="radio" class="check" name="status" value="2" id="minimal-checkbox-3" data-radio="iradio_square-green">
                                                         <label class="mr-3" for="minimal-checkbox-3">Done</label>
                                                     </li>
                                                 </ul>
-                                            </div>                                          
-                                            @error('handphone')
+                                            </div>
+                                            @error('status')
                                                 <small class="form-control-feedback text-danger"> {{ $message }} </small>
                                             @enderror
                                         </div>

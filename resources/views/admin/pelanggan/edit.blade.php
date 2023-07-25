@@ -80,7 +80,7 @@
                                             <select name="jenis_mobil" id="jenis_mobil" class="form-control custom-select">
                                                 <option>--Pilih jenis mobil--</option>
                                                 @foreach ($jenis_kendaraan as $jk_item)
-                                                    <option value="{{ $jk_item->nama }}" {{ $jk_item->nama == $jenis_kendaraan->nama ? 'selected' : '' }}>{{ $jk_item->nama }}</option>
+                                                    <option value="{{ $jk_item->nama }}" {{ $jk_item->nama == $pelanggan->jenis_mobil ? 'selected' : '' }}>{{ $jk_item->nama }}</option>
                                                 @endforeach
                                             </select>
                                             @error('jenis_mobil')
@@ -90,14 +90,14 @@
                                     </div>
                                 </div>
                                 <!--/span-->
-                                {{-- <div class="col-md-12">
+                                <div class="col-md-12">
                                     <div class="form-group row">
                                         <label class="control-label text-right col-md-2">Merek</label>
                                         <div class="col-md-10">
                                             <select name="merek" id="merek" class="form-control custom-select">
                                                 <option>--Pilih Merek--</option>
                                                 @foreach ($merek_kendaraan as $merek)
-                                                    <option value="{{ $merek->nama }}" {{ $merek->nama == $merek_kendaraan->nama ? 'selected' : '' }}>{{ $merek->nama }}</option>
+                                                    <option value="{{ $merek->nama }}" {{ $merek->nama == $pelanggan->merek ? 'selected' : '' }}>{{ $merek->nama }}</option>
                                                 @endforeach
                                             </select>
                                             @error('merek')
@@ -105,7 +105,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div> --}}
+                                </div>
                                 <!--/span-->
                                 <div class="col-md-12">
                                     <div class="form-group row">
@@ -155,15 +155,15 @@
                                             <div class="input-group">
                                                 <ul class="icheck-list">
                                                     <li class="d-inline-block">
-                                                        <input type="radio" class="check" name="status" id="minimal-checkbox-1" data-radio="iradio_square-green" value="0" {{ $pelanggan->status == 0 ? 'selected' : '' }}>
+                                                        <input type="radio" class="check" name="status" id="minimal-checkbox-1" data-radio="iradio_square-green" value="0"{{ $pelanggan->status == 0 ? 'checked' : '' }}>
                                                         <label class="mr-3" for="minimal-checkbox-1">Pending</label>
                                                     </li>
                                                     <li class="d-inline-block">
-                                                        <input type="radio" class="check" name="status" id="minimal-checkbox-2" data-radio="iradio_square-green" value="1"{{ $pelanggan->status == 1 ? 'selected' : '' }}>
+                                                        <input type="radio" class="check" name="status" id="minimal-checkbox-2" data-radio="iradio_square-green" value="1"{{ $pelanggan->status == 1 ? 'checked' : '' }}>
                                                         <label class="mr-3" for="minimal-checkbox-2">Process</label>
                                                     </li>
                                                     <li class="d-inline-block">
-                                                        <input type="radio" class="check" name="status" id="minimal-checkbox-3" data-radio="iradio_square-green" value="2"{{ $pelanggan->status == 2 ? 'selected' : '' }}>
+                                                        <input type="radio" class="check" name="status" id="minimal-checkbox-3" data-radio="iradio_square-green" value="2"{{ $pelanggan->status == 2 ? 'checked' : '' }}>
                                                         <label class="mr-3" for="minimal-checkbox-3">Done</label>
                                                     </li>
                                                 </ul>

@@ -95,7 +95,7 @@
                                             <select name="bahan_bakar" id="bahan_bakar" class="form-control custom-select">
                                                 <option>--Pilih Bahan Bakar--</option>
                                                 @foreach ($bahan_bakar_kendaraan as $bbk_item)
-                                                    <option value="{{ $bbk_item->id }}" {{ $bbk_item->nama == $kendaraan->bahanBakarKendaraan ->nama ? 'selected' : '' }}>{{ $bbk_item->nama }}</option>
+                                                    <option value="{{ $bbk_item->id }}" {{ $bbk_item->nama == $kendaraan->bahanBakarKendaraan->nama ? 'selected' : '' }}>{{ $bbk_item->nama }}</option>
                                                 @endforeach
                                             </select>
                                             @error('bahan_bakar')
