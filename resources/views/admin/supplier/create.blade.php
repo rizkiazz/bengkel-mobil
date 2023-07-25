@@ -17,8 +17,8 @@
             <div class="d-flex justify-content-end align-items-center">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                    <li class="breadcrumb-item">Suku Cadang</li>
-                    <li class="breadcrumb-item active">Tambah Suku Cadang</li>
+                    <li class="breadcrumb-item">Supplier</li>
+                    <li class="breadcrumb-item active">Tambah Supplier</li>
                 </ol>
             </div>
         </div>
@@ -28,20 +28,21 @@
         <div class="col-lg-12">
             <div class="card ">
                 <div class="card-header bg-info">
-                    <h4 class="m-b-0 text-white">Form Tambah Suku Cadang
-                        <a href="{{ url('admin/suku-cadang') }}" class="text-white btn btn-inverse float-right"><i class="fa fa-arrow-left"></i> Kembali</a>
+                    <h4 class="m-b-0 text-white">Form Tambah Supplier
+                        <a href="{{ url('admin/supplier') }}" class="text-white btn btn-inverse float-right"><i class="fa fa-arrow-left"></i> Kembali</a>
                     </h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ url('admin/suku-cadang') }}" method="POST" class="form-horizontal" id="storeform">
+                    <form action="{{ url('admin/supplier') }}" method="POST" class="form-horizontal" id="storeform">
                         @csrf
                         <div class="form-body">
-                            <h3 class="box-title">Suku Cadang Info</h3>
+                            <h3 class="box-title">Supplier Info</h3>
                             <hr class="m-t-0 m-b-40">
+                            <input type="hidden" id="kode" name="kode" class="form-control" autocomplete="off" placeholder="Masukan teks..." value="SUP-<?= mt_rand(00000, 11111) ?>" maxlength="5">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group row">
-                                        <label class="control-label text-right col-md-2">Nama Suku Cadang</label>
+                                        <label class="control-label text-right col-md-2">Nama Supplier</label>
                                         <div class="col-md-10">
                                             <input type="text" id="nama" name="nama" class="form-control" autocomplete="off" placeholder="Masukan teks...">
                                             @error('nama')
@@ -53,10 +54,21 @@
                                 <!--/span-->
                                 <div class="col-md-12">
                                     <div class="form-group row">
-                                        <label class="control-label text-right col-md-2">Jenis Suku Cadang</label>
+                                        <label class="control-label text-right col-md-2">Jenis Badan Usaha</label>
                                         <div class="col-md-10">
-                                            <input type="text" id="jenis_suku_cadang" name="jenis_suku_cadang" class="form-control" autocomplete="off" placeholder="Masukan teks...">
-                                            @error('jenis_suku_cadang')
+                                            <select name="badan_usaha" id="badan_usaha" class="form-control custom-select">
+                                                <option>--Pilih Jenis Badan Usaha--</option>
+                                                <option value="CV - Commanditaire Vennootschap">CV - Commanditaire Vennootschap</option>
+                                                <option value="PT - Perseroan Terbatas">PT - Perseroan Terbatas</option>
+                                                <option value="Yayasan">Yayasan</option>
+                                                <option value="Koperasi">Koperasi</option>
+                                                <option value="PERJAN - Perusahaan Jawatan Negara">PERJAN - Perusahaan Jawatan Negara</option>
+                                                <option value="PERUM - Perusahaan publik">PERUM - Perusahaan publik</option>
+                                                <option value="Perusahaan Desa / Bumdes">Perusahaan Desa / Bumdes</option>
+                                                <option value="Firma">Firma</option>
+                                                <option value="UMKM - Usaha Kecil Menengah">UMKM - Usaha Kecil Menengah</option>
+                                            </select>                         
+                                            @error('badan_usaha')
                                                 <small class="form-control-feedback text-danger"> {{ $message }} </small>
                                             @enderror
                                         </div>
@@ -65,10 +77,15 @@
                                 <!--/span-->
                                 <div class="col-md-12">
                                     <div class="form-group row">
-                                        <label class="control-label text-right col-md-2">Merek</label>
+                                        <label class="control-label text-right col-md-2">Kepemilikan</label>
                                         <div class="col-md-10">
-                                            <input type="text" id="merek" name="merek" class="form-control" autocomplete="off" placeholder="Masukan teks...">
-                                            @error('merek')
+                                            <select name="kepemilikan" id="kepemilikan" class="form-control custom-select">
+                                                <option>--Pilih Kepemilikan--</option>
+                                                <option value="Pribadi">Pribadi</option>
+                                                <option value="Mitra">Mitra</option>
+                                                <option value="Badan Usaha">Badan Usaha</option>
+                                            </select>
+                                            @error('kepemilikan')
                                                 <small class="form-control-feedback text-danger"> {{ $message }} </small>
                                             @enderror
                                         </div>
@@ -77,51 +94,62 @@
                                 <!--/span-->
                                 <div class="col-md-12">
                                     <div class="form-group row">
-                                        <label class="control-label text-right col-md-2">Satuan</label>
-                                        <div class="col-md-10">
-                                            <input type="number" id="satuan" name="satuan" class="form-control" autocomplete="off" placeholder="0">
-                                            @error('satuan')
-                                                <small class="form-control-feedback text-danger"> {{ $message }} </small>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/span-->
-                                <div class="col-md-12">
-                                    <div class="form-group row">
-                                        <label class="control-label text-right col-md-2">Stock</label>
-                                        <div class="col-md-10">
-                                            <input type="number" id="stock" name="stock" class="form-control" autocomplete="off" placeholder="0">
-                                            @error('stock')
-                                                <small class="form-control-feedback text-danger"> {{ $message }} </small>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/span-->
-                                <div class="col-md-12">
-                                    <div class="form-group row">
-                                        <label class="control-label text-right col-md-2">Deskripsi</label>
-                                        <div class="col-md-10">
-                                            <textarea name="deskripsi" id="deskripsi" class="form-control" cols="30" rows="10" placeholder="Masukan Teks..."></textarea>
-                                            @error('deskripsi')
-                                                <small class="form-control-feedback text-danger"> {{ $message }} </small>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/span-->
-                                <div class="col-md-12">
-                                    <div class="form-group row">
-                                        <label class="control-label text-right col-md-2">Harga</label>
+                                        <label class="control-label text-right col-md-2">No HP</label>
                                         <div class="col-md-10">
                                             <div class="input-group">
                                                 <div class="input-group-append">
-                                                    <span class="input-group-text">Rp. </span>
+                                                    <span class="input-group-text">+62 </span>
                                                 </div>
-                                                <input type="number" id="harga" name="harga" class="form-control" autocomplete="off" placeholder="0">
+                                                <input type="number" id="no_hp" name="no_hp" class="form-control" autocomplete="off" placeholder="8xxxxxxxxxx" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==12) return false;">
                                             </div>
-                                            @error('harga')
+                                            @error('no_hp')
+                                                <small class="form-control-feedback text-danger"> {{ $message }} </small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-12">
+                                    <div class="form-group row">
+                                        <label class="control-label text-right col-md-2">Alamat</label>
+                                        <div class="col-md-10">
+                                            <input type="text" id="alamat" name="alamat" class="form-control" autocomplete="off" placeholder="Masukan Alamat Anda...">
+                                            @error('alamat')
+                                                <small class="form-control-feedback text-danger"> {{ $message }} </small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-12">
+                                    <div class="form-group row">
+                                        <label class="control-label text-right col-md-2">Status</label>
+                                        <div class="col-md-10">
+                                            <div class="input-group">
+                                                <ul class="icheck-list">
+                                                    <li class="d-inline-block">
+                                                        <input type="radio" class="check" name="status" value="0" id="minimal-checkbox-1" data-radio="iradio_square-green">
+                                                        <label class="mr-3" for="minimal-checkbox-1">Non Aktive</label>
+                                                    </li>
+                                                    <li class="d-inline-block">
+                                                        <input type="radio" class="check" name="status" value="1" id="minimal-checkbox-2" data-radio="iradio_square-green">
+                                                        <label class="mr-3" for="minimal-checkbox-2">Active</label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            @error('status')
+                                                <small class="form-control-feedback text-danger"> {{ $message }} </small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- </span> --}}
+                                <div class="col-md-12">
+                                    <div class="form-group row">
+                                        <label class="control-label text-right col-md-2">Keterangan</label>
+                                        <div class="col-md-10">
+                                            <textarea name="keterangan" id="keterangan" class="form-control" cols="30" rows="10" placeholder="Masukan Teks..."></textarea>
+                                            @error('keterangan')
                                                 <small class="form-control-feedback text-danger"> {{ $message }} </small>
                                             @enderror
                                         </div>
