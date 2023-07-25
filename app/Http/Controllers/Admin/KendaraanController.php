@@ -16,7 +16,10 @@ class KendaraanController extends Controller
     public function index()
     {
         $kendaraan = Kendaraan::all();
-        return view('admin.kendaraan.index', compact('kendaraan'));
+        $jenis_kendaraan = JenisKendaraan::all();
+        $merek_kendaraan = MerekKendaraan::all();
+        $bahan_bakar_kendaraan = BahanBakar::all();
+        return view('admin.kendaraan.index', compact('kendaraan','jenis_kendaraan','merek_kendaraan', 'bahan_bakar_kendaraan'));
     }
     public function create()
     {
@@ -27,43 +30,25 @@ class KendaraanController extends Controller
     }
     public function store(KendaraanFormRequest $request)
     {
-        //masih perbaikan
 
-
-        //// $data = new Kendaraan();
-        // // $data = $data->create( $request->all() );
-        //// $validatedData = $request->validated();
-        //// $kendaraan = new Kendaraan();
-        //// $kendaraan->merek = $validatedData['merek'];
-        //// $kendaraan->model = $validatedData['model'];
-        //// $kendaraan->nama = $validatedData['nama'];
-        //// $kendaraan->bahan_bakar = $validatedData['bahan_bakar'];
-        //// $kendaraan->save();
-
-        // $merek = json_encode($request->merek);
-        // $model = json_encode($request->model);
-        // $nama = json_encode($request->nama);
-        // $bahan_bakar = json_encode($request->bahan_bakar);
-        
-
-        // // $i = 0;
-        // $datasave = [
-        //     'merek' => $merek,
-        //     'model' => $model,
-        //     'nama' => $nama,
-        //     'bahan_bakar' => $bahan_bakar,
-        // ];
-        // $integerIDs = array_map('intval', explode('"$nama"', $nama));
-        // $datasave = substr_replace($datasave);
-        
-        // dd($datasave);
-        // DB::table('kendaraan')->insert($datasave);
+        $validatedData = $request->validated();
+        $kendaraan = new Kendaraan();
+        $kendaraan->merek = $validatedData['merek'];
+        $kendaraan->model = $validatedData['model'];
+        $kendaraan->nama = $validatedData['nama'];
+        $kendaraan->bahan_bakar = $validatedData['bahan_bakar'];
+        // dd(var_dump($kendaraan));
+        $kendaraan->save();
 
         return redirect('admin/kendaraan')->with('message', 'Data Kendaraan berhasil dibuat');
     }
-    public function edit(Kendaraan $kendaraan)
+    public function edit(int $kendaraan)
     {
-        return view('admin.kendaraan.edit', compact('kendaraan'));
+        $jenis_kendaraan = JenisKendaraan::all();
+        $merek_kendaraan = MerekKendaraan::all();
+        $bahan_bakar_kendaraan = BahanBakar::all();
+        $kendaraan = Kendaraan::findOrFail($kendaraan);
+        return view('admin.kendaraan.edit', compact('kendaraan', 'jenis_kendaraan','merek_kendaraan', 'bahan_bakar_kendaraan'));
     }
     public function update(Request $request, $kendaraan)
     {

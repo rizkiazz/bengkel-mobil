@@ -12,8 +12,8 @@ class MerekKendaraan extends Model
     protected $table = 'merek_kendaraan';
     protected $fillable = ['nama' => 'string' ];
 
-    public function merekKendaraan() : BelongsTo
+    public function merekKendaraan()
     {
-        return $this->belongsTo(Kendaraan::class, 'kendaraan_id', 'id');
+        return $this->hasMany(Kendaraan::class, 'kendaraan_id', 'id');
     }
 }

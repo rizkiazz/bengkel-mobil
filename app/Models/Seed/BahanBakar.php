@@ -13,8 +13,8 @@ class BahanBakar extends Model
     protected $table = 'bahan_bakar_kendaraan';
     protected $fillable = ['nama' => 'string' ];
 
-    public function bahanBakarKendaraan() : BelongsTo
+    public function bahanBakarKendaraan()
     {
-        return $this->belongsTo(Kendaraan::class, 'kendaraan_id', 'id');
+        return $this->hasMany(Kendaraan::class, 'kendaraan_id', 'id');
     }
 }

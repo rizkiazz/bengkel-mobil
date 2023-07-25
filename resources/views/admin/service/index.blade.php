@@ -17,7 +17,7 @@
             <div class="d-flex justify-content-end align-items-center">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                    <li class="breadcrumb-item active">Kendaraan</li>
+                    <li class="breadcrumb-item active">Service</li>
                 </ol>
             </div>
         </div>
@@ -28,43 +28,41 @@
                 <div class="alert alert-success">{{  session('message') }}</div>
             @endif
             <h4 class="card-title">
-                Table Kendaraan
-                <a href="{{ url('admin/kendaraan/create') }}" class="btn btn-info float-right"><i class="fa fa-plus-circle"></i> Tambah Kendaraan</a>
+                Table Service
+                <a href="{{ url('admin/service/create') }}" class="btn btn-info float-right"><i class="fa fa-plus-circle"></i> Tambah Service</a>
             </h4>
-            <h6 class="card-subtitle">Daftar list kendaraan</h6>
+            <h6 class="card-subtitle">Daftar list service</h6>
             <div class="table-responsive m-t-40">
                 <table id="myTable" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>No</th>
                             <th>ID</th>
-                            <th>Merek</th>
-                            <th>Model/Type</th>
-                            <th>Nama</th>
-                            <th>Bahan Bakar</th>
+                            <th>Nama Pelanggan</th>
+                            <th>Keluhan</th>
+                            <th>status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($kendaraan as $kendaraan_item)
-                            
+                        {{-- @foreach ($suku_cadang as $sc_item)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $kendaraan_item->id }}</td>
+                            <td style="width: 2%">{{ $loop->iteration }}</td>
+                            <td>{{ $sc_item->id }}</td>
+                            <td>{{ $sc_item->nama }}</td>
+                            <td>{{ $sc_item->jenis_suku_cadang }}</td>
+                            <td>{{ $sc_item->merek }}</td>
+                            <td>{{ $sc_item->satuan }}</td>
+                            <td>{{ $sc_item->stock }}</td>
+                            <td>{{ $sc_item->deskripsi }}</td>
+                            <td>Rp. {{ $sc_item->harga }}</td>
                             <td>
-                                {{ $kendaraan_item->merekKendaraan->nama ?? 'None' }}
-                            </td>
-                            <td>{{ $kendaraan_item->jenisKendaraan->nama ?? 'None' }}</td>
-                            <td>{{ $kendaraan_item->nama }}</td>
-                            <td>{{ $kendaraan_item->bahanBakarKendaraan->nama ?? 'None' }}</td>
-                            <td>
-                                <a href="{{ url('admin/kendaraan/'.$kendaraan_item->id.'/edit') }}" class="btn btn-success"><i class="fa fa-edit"></i>&nbsp Edit</a>
-                                <a href="#" data-nama="{{ $kendaraan_item->nama }}" data-id="{{ $kendaraan_item->id }}" class="btn btn-danger confirm-delete"><i class="fa fa-trash-alt"></i>&nbsp Delete</a>
+                                <a href="{{ url('admin/service/'.$sc_item->id.'/edit') }}" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                <a href="#" data-nama="{{ $sc_item->nama }}" data-id="{{ $sc_item->id }}" class="btn btn-danger confirm-delete" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-alt"></i></a>
                             </td>
                         </tr>
-                        @empty
+                        @endforeach --}}
                             
-                        @endforelse
                     </tbody>
                 </table>
             </div>
@@ -128,11 +126,11 @@
 
         //examples 
         $(".confirm-delete").click(function () {
-            var kendaraan_id = $(this).attr('data-id');
-            var kendaraan_nama = $(this).attr('data-nama');
+            var sc_id = $(this).attr('data-id');
+            var sc_nama = $(this).attr('data-nama');
             Swal.fire({
                 title: 'Apakah Kamu Yakin?',
-                text: "Hapus kendaraan dengan nama ["+kendaraan_nama+"] ini!",
+                text: "Hapus kendaraan dengan nama ["+sc_nama+"] ini!",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -140,7 +138,7 @@
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.value) {
-                    window.location= "/admin/kendaraan/"+kendaraan_id+""
+                    window.location= "/admin/service/"+sc_id+""
                     Swal.fire(
                         'Terhapus!',
                         'File berhasil dihapus.',

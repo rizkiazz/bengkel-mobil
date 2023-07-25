@@ -24,10 +24,10 @@ class KendaraanFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'merek',
-            'model',
-            'nama',
-            'bahan_bakar'
+            'merek' => ['required', 'string'],
+            'model' => ['required', 'string'],
+            'nama' => ['required', 'string'],
+            'bahan_bakar' => ['required', 'string']
         ];
     }
 }

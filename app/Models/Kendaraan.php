@@ -7,6 +7,7 @@ use App\Models\Seed\JenisKendaraan;
 use App\Models\Seed\MerekKendaraan;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Kendaraan extends Model
 {
@@ -19,10 +20,16 @@ class Kendaraan extends Model
         'nama' => 'required',
         'bahan_bakar' => 'required',
     ];
-    public function kendaraan()
+    public function merekKendaraan()
     {
-        return $this->hasMany(MerekKendaraan::class, 'merek_id', 'id');
-        return $this->hasMany(JenisKendaraan::class, 'model_id', 'id');
-        return $this->hasMany(BahanBakar::class, 'bahan_bakar_id', 'id');
+        return $this->belongsTo(MerekKendaraan::class, 'id');
+    }
+    public function jenisKendaraan()
+    {
+        return $this->belongsTo(JenisKendaraan::class, 'id');
+    }
+    public function bahanBakarKendaraan()
+    {
+        return $this->belongsTo(BahanBakar::class,'id');
     }
 }

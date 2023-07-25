@@ -50,7 +50,7 @@
                                             <select name="merek" id="merek" class="form-control custom-select">
                                                 <option>--Pilih Merek--</option>
                                                 @foreach ($merek_kendaraan as $mk_item)
-                                                    <option value="{{ $mk_item->nama }}">{{ $mk_item->nama }}</option>
+                                                    <option value="{{ $mk_item->id }}">{{ $mk_item->nama }}</option>
                                                 @endforeach
                                             </select>
                                             @error('merek')
@@ -67,7 +67,7 @@
                                             <select name="model" id="model" class="form-control custom-select">
                                                 <option>--Pilih Model--</option>
                                                 @foreach ($jenis_kendaraan as $jk_item)
-                                                    <option value="{{ $jk_item->nama }}">{{ $jk_item->nama }}</option>
+                                                    <option value="{{ $jk_item->id }}">{{ $jk_item->nama }}</option>
                                                 @endforeach
                                             </select>
                                             @error('model')
@@ -96,7 +96,7 @@
                                             <select name="bahan_bakar" id="bahan_bakar" class="form-control custom-select">
                                                 <option>--Pilih Bahan Bakar--</option>
                                                 @foreach ($bahan_bakar_kendaraan as $bbm_item)
-                                                    <option value="{{ $bbm_item->nama }}">{{ $bbm_item->nama }}</option>
+                                                    <option value="{{ $bbm_item->id }}">{{ $bbm_item->nama }}</option>
                                                 @endforeach
                                             </select>
                                             @error('bahan_bakar')

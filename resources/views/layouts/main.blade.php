@@ -23,6 +23,9 @@
     <link href="{{ asset('dist/css/pages/dashboard1.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ ('../../../assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ ('../../../assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css') }}">
+    
+    <link href="{{ asset('../dist/css/pages/form-icheck.css') }}" rel="stylesheet">
+    <link href="{{ asset('../assets/node_modules/icheck/skins/all.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
     <!-- HTML5 Shim and Respond.js') }} IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js') }} doesn't work if you view the page via file:// -->
@@ -188,6 +191,10 @@
     <!-- Sweet-Alert  -->
     <script src="{{ asset('../assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
     <script src="{{ asset('../assets/node_modules/sweetalert2/sweet-alert.init.js') }}"></script>
+
+    <!-- icheck -->
+    <script src="{{ asset('../assets/node_modules/icheck/icheck.min.js') }}"></script>
+    <script src="{{ asset('../assets/node_modules/icheck/icheck.init.js') }}"></script>
 
     @stack('script')
 </body>

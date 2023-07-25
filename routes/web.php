@@ -58,6 +58,14 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::put('/suku-cadang/{suku_cadang}', 'update');
         Route::get('/suku-cadang/{suku_cadang}', 'destroy');
     });
+    Route::controller(App\Http\Controllers\Admin\PelangganController::class)->group(function (){
+        Route::get('/pelanggan', 'index');
+        Route::get('/pelanggan/create', 'create');
+        Route::post('/pelanggan', 'store');
+        Route::get('/pelanggan/{pelanggan}/edit', 'edit');
+        Route::put('/pelanggan/{pelanggan}', 'update');
+        Route::get('/pelanggan/{pelanggan}', 'destroy');
+    });
     Route::controller(App\Http\Controllers\Admin\ServiceController::class)->group(function (){
         Route::get('/service', 'index');
         Route::get('/service/create', 'create');
@@ -65,5 +73,13 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('/service/{service}/edit', 'edit');
         Route::put('/service/{service}', 'update');
         Route::get('/service/{service}', 'destroy');
+    });
+    Route::controller(App\Http\Controllers\Admin\SupplierController::class)->group(function (){
+        Route::get('/supplier', 'index');
+        Route::get('/supplier/create', 'create');
+        Route::post('/supplier', 'store');
+        Route::get('/supplier/{supplier}/edit', 'edit');
+        Route::put('/supplier/{supplier}', 'update');
+        Route::get('/supplier/{supplier}', 'destroy');
     });
 });
