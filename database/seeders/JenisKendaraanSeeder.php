@@ -17,22 +17,18 @@ class JenisKendaraanSeeder extends Seeder
     {
 
         $data = [
-            ['nama' => 'minibus'],
-            ['nama' => 'minibus'],
-            ['nama' => 'minibus'],
-            ['nama' => 'minibus'],
-            ['nama' => 'minibus'],
-            ['nama' => 'minibus'],
-            ['nama' => 'minibus'],
-            ['nama' => 'minibus'],
-            ['nama' => 'minibus'],
-            ['nama' => 'minibus'],
-            ['nama' => 'minibus'],
-            ['nama' => 'minibus'],
-            ['nama' => 'minibus'],
-            ['nama' => 'minibus'],
-            ['nama' => 'minibus'],
-            ['nama' => 'minibus'],
+            ['nama' => 'Mini Bus'],
+            ['nama' => 'Sedan'],
+            ['nama' => 'Pick Up'],
+            ['nama' => 'Bus'],
+            ['nama' => 'Truck'],
+            ['nama' => 'Listrik/Elektrik'],
+            ['nama' => 'Sport'],
+            ['nama' => 'MPV'],
+            ['nama' => 'SUV (Sport Utility Vehicle)'],
+            ['nama' => 'Hybird'],
+            ['nama' => 'CrossOver'],
+            ['nama' => 'Van']
         ];
         foreach ( $data as $value) {
 

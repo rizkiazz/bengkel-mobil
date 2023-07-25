@@ -45,15 +45,12 @@
                                     <div class="form-group row">
                                         <label class="control-label text-right col-md-2">Merek</label>
                                         <div class="col-md-10">
-                                            {{ $kendaraan->merek }}
+                                            {{-- {{ $kendaraan->merek }} --}}
                                             <select name="merek" id="merek" class="form-control custom-select">
                                                 <option>--Pilih merek--</option>
-                                                {{-- @foreach ($merek_kendaraan as $mk_item)
-                                                    <option value="{{ $mk_item->nama }}" {{ $mk_item->nama == $merekKendaraan->merekKendaraan->nama ? 'selected' : '' }}>{{ $mk_item->nama }}</option>
-                                                @endforeach --}}
-                                                {{-- <option {{ ($kendaraan->merek === 'Toyota') ? 'Selected' : '' }} value="Toyota">Toyota</option>
-                                                <option {{ ($kendaraan->merek === 'Honda') ? 'Selected' : '' }} value="Honda">Honda</option>
-                                                <option {{ ($kendaraan->merek === 'Mitsubishi') ? 'Selected' : '' }} value="Mitsubishi">Mitsubishi</option> --}}
+                                                @foreach ($merek_kendaraan as $mk_item)
+                                                    <option value="{{ $mk_item->id }}" {{ $mk_item->nama == $kendaraan->merekKendaraan->nama ? 'selected' : '' }}>{{ $mk_item->nama }}</option>
+                                                @endforeach
                                             </select>
                                             @error('merek')
                                                 <small class="form-control-feedback text-danger"> {{ $message }} </small>
@@ -68,15 +65,9 @@
                                         <div class="col-md-10">
                                             <select name="model" id="model" class="form-control custom-select">
                                                 <option>--Pilih model--</option>
-                                                {{-- @foreach ($jenis_kendaraan as $jk_item)
-                                                    <option value="{{ $jk_item->nama }}" {{ $jk_item->nama == $jenis_kendaraan->nama ? 'selected' : '' }}>{{ $jk_item->nama }}</option>
-                                                @endforeach --}}
-                                                {{-- <option {{ ($kendaraan->model === 'Minibus') ? 'Selected' : '' }} value="Minibus">Minibus</option>
-                                                <option {{ ($kendaraan->model === 'Elf') ? 'Selected' : '' }} value="Elf">Elf</option>
-                                                <option {{ ($kendaraan->model === 'Sedan') ? 'Selected' : '' }} value="Sedan">Sedan</option>
-                                                <option {{ ($kendaraan->model === 'Bus') ? 'Selected' : '' }} value="Bus">Bus</option>
-                                                <option {{ ($kendaraan->model === 'Pick Up') ? 'Selected' : '' }} value="Pick Up">Pick Up</option>
-                                                <option {{ ($kendaraan->model === 'Truk') ? 'Selected' : '' }} value="Truk">Truk</option> --}}
+                                                @foreach ($jenis_kendaraan as $jk_item)
+                                                    <option value="{{ $jk_item->id }}" {{ $jk_item->nama == $kendaraan->jenisKendaraan ->nama ? 'selected' : '' }}>{{ $jk_item->nama }}</option>
+                                                @endforeach
                                             </select>
                                             @error('model')
                                                 <small class="form-control-feedback text-danger"> {{ $message }} </small>
@@ -103,8 +94,9 @@
                                         <div class="col-md-10">
                                             <select name="bahan_bakar" id="bahan_bakar" class="form-control custom-select">
                                                 <option>--Pilih Bahan Bakar--</option>
-                                                <option {{ ($kendaraan->bahan_bakar === 'bensin') ? 'Selected' : '' }} value="bensin">Bensin</option>
-                                                <option {{ ($kendaraan->bahan_bakar === 'solar') ? 'Selected' : '' }} value="solar">Solar</option>
+                                                @foreach ($bahan_bakar_kendaraan as $bbk_item)
+                                                    <option value="{{ $bbk_item->id }}" {{ $bbk_item->nama == $kendaraan->bahanBakarKendaraan ->nama ? 'selected' : '' }}>{{ $bbk_item->nama }}</option>
+                                                @endforeach
                                             </select>
                                             @error('bahan_bakar')
                                                 <small class="form-control-feedback text-danger"> {{ $message }} </small>

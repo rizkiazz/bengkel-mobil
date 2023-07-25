@@ -15,16 +15,13 @@ return new class extends Migration
     {
         Schema::create('kendaraan', function (Blueprint $table) {
             $table->id();
-            // $table->string('merek');
-            // $table->string('model');
             $table->string('nama');
-            // $table->string('bahan_bakar');
             $table->unsignedBigInteger('merek');
             $table->unsignedBigInteger('model');
             $table->unsignedBigInteger('bahan_bakar');
-            $table->foreign('merek')->references('id')->on('merek_kendaraan')->onDelete('cascade');;
-            $table->foreign('model')->references('id')->on('jenis_kendaraan')->onDelete('cascade');;
-            $table->foreign('bahan_bakar')->references('id')->on('bahan_bakar_kendaraan')->onDelete('cascade');;
+            $table->foreign('merek')->references('id')->on('merek_kendaraan')->onDelete('cascade');
+            $table->foreign('model')->references('id')->on('jenis_kendaraan')->onDelete('cascade');
+            $table->foreign('bahan_bakar')->references('id')->on('bahan_bakar_kendaraan')->onDelete('cascade');
             $table->timestamps();
         });
     }

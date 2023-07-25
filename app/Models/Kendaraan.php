@@ -22,14 +22,14 @@ class Kendaraan extends Model
     ];
     public function merekKendaraan()
     {
-        return $this->belongsTo(MerekKendaraan::class, 'id');
+        return $this->belongsTo(MerekKendaraan::class, 'merek');
     }
     public function jenisKendaraan()
     {
-        return $this->belongsTo(JenisKendaraan::class, 'id');
+        return $this->belongsTo(JenisKendaraan::class, 'model');
     }
     public function bahanBakarKendaraan()
     {
-        return $this->belongsTo(BahanBakar::class,'id');
+        return $this->belongsTo(BahanBakar::class,'bahan_bakar');
     }
 }
