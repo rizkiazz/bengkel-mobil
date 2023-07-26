@@ -1,3 +1,3 @@
 <footer class="footer">
-    © 2020 Eliteadmin by themedesigner.in
+    © 2023 Bengkel Rizki Jaya
 </footer>

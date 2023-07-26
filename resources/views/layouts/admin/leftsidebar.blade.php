@@ -14,6 +14,7 @@
                 <li> <a class="waves-effect waves-dark" href="{{ url('admin/suku-cadang') }}"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Suku Cadang</a></li>
                 <li> <a class="waves-effect waves-dark" href="{{ url('admin/supplier') }}"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Supplier</a></li>
                 <li> <a class="waves-effect waves-dark" href="{{ url('admin/pelanggan') }}"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Pelanggan</a></li>
+                <li> <a class="waves-effect waves-dark" href="{{ url('admin/service') }}"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Service</a></li>
                 {{-- <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Kategori <span class="badge badge-pill badge-cyan ml-auto">1</span></span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="{{ url('admin/kategori/create') }}">Tambah Kategori </a></li>
