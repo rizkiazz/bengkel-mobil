@@ -80,7 +80,20 @@
                                     <div class="form-group row">
                                         <label class="control-label text-right col-md-2">Satuan</label>
                                         <div class="col-md-10">
-                                            <input type="number" id="satuan" name="satuan" class="form-control" autocomplete="off" value="{{ $suku_cadang->satuan }}">
+                                            <select name="satuan" id="satuan" class="form-control custom-select">
+                                                <option>--Pilih Satuan--</option>
+                                                <option value="unit" {{ $suku_cadang->satuan == 'unit' ? 'selected' : '' }}>unit</option>
+                                                <option value="set" {{ $suku_cadang->satuan == 'set' ? 'selected' : '' }}>set</option>
+                                                <option value="pag" {{ $suku_cadang->satuan == 'pag' ? 'selected' : '' }}>pag</option>
+                                                <option value="psng" {{ $suku_cadang->satuan == 'psng' ? 'selected' : '' }}>psng</option>
+                                                <option value="lembar" {{ $suku_cadang->satuan == 'lembar' ? 'selected' : '' }}>lembar</option>
+                                                <option value="pcs" {{ $suku_cadang->satuan == 'pcs' ? 'selected' : '' }}>pcs</option>
+                                                <option value="liter" {{ $suku_cadang->satuan == 'liter' ? 'selected' : '' }}>liter</option>
+                                                <option value="roll" {{ $suku_cadang->satuan == 'roll' ? 'selected' : '' }}>roll</option>
+                                                <option value="drum" {{ $suku_cadang->satuan == 'drum' ? 'selected' : '' }}>drum</option>
+                                                <option value="block" {{ $suku_cadang->satuan == 'block' ? 'selected' : '' }}>block</option>
+                                                <option value="dos" {{ $suku_cadang->satuan == 'dos' ? 'selected' : '' }}>dos</option>
+                                            </select>
                                             @error('satuan')
                                                 <small class="form-control-feedback text-danger"> {{ $message }} </small>
                                             @enderror

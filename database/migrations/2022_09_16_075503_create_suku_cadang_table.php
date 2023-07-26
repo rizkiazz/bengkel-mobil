@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('nama');
             $table->string('jenis_suku_cadang');
             $table->string('merek');
-            $table->integer('satuan')->default(0);
+            $table->string('satuan');
             $table->integer('stock')->default(0);
             $table->mediumText('deskripsi')->nullable();
-            $table->decimal('harga', $precision = 12, $scale = 2)->default(0);
+            $table->decimal('harga', $precision = 20, $scale = 0)->default(0);
             $table->timestamps();
         });
     }

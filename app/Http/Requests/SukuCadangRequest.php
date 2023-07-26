@@ -27,7 +27,7 @@ class SukuCadangRequest extends FormRequest
             'nama' => ['required', 'string'],
             'jenis_suku_cadang' => ['required', 'string'],
             'merek' => ['required', 'string'],
-            'satuan' => ['required', 'int'],
+            'satuan' => ['required', 'string'],
             'stock' => ['required', 'int'],
             'deskripsi' => ['required', 'string'],
             'harga' => ['required', 'min:1']

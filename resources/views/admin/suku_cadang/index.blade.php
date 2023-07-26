@@ -57,9 +57,19 @@
                             <td>{{ $sc_item->jenis_suku_cadang }}</td>
                             <td>{{ $sc_item->merek }}</td>
                             <td>{{ $sc_item->satuan }}</td>
-                            <td>{{ $sc_item->stock }}</td>
+                            @if (empty($sc_item->stock))
+                                <td>
+                                    <span class="btn btn-dark">Kosong <span class="badge badge-light">0</span>
+                                    </span>
+                                </td>
+                            @else
+                                <td>
+                                    <span class="btn btn-primary">Sisa <span class="badge badge-light">{{ $sc_item->stock }}</span>
+                                    </span>
+                                </td>
+                            @endif
                             <td>{{ $sc_item->deskripsi }}</td>
-                            <td>Rp. {{ $sc_item->harga }}</td>
+                            <td>Rp. {{ number_format($sc_item->harga, 0, ',', '.') }}</td>
                             <td>
                                 <a href="{{ url('admin/suku-cadang/'.$sc_item->id.'/edit') }}" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                                 <a href="#" data-nama="{{ $sc_item->nama }}" data-id="{{ $sc_item->id }}" class="btn btn-danger confirm-delete" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-alt"></i></a>

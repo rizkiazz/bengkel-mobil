@@ -79,7 +79,20 @@
                                     <div class="form-group row">
                                         <label class="control-label text-right col-md-2">Satuan</label>
                                         <div class="col-md-10">
-                                            <input type="number" id="satuan" name="satuan" class="form-control" autocomplete="off" placeholder="0">
+                                            <select name="satuan" id="satuan" class="form-control custom-select">
+                                                <option>--Pilih Satuan--</option>
+                                                <option value="unit">unit</option>
+                                                <option value="set">set</option>
+                                                <option value="pag">pag</option>
+                                                <option value="psng">psng</option>
+                                                <option value="lembar">lembar</option>
+                                                <option value="pcs">pcs</option>
+                                                <option value="liter">liter</option>
+                                                <option value="roll">roll</option>
+                                                <option value="drum">drum</option>
+                                                <option value="block">block</option>
+                                                <option value="dos">dos</option>
+                                            </select>
                                             @error('satuan')
                                                 <small class="form-control-feedback text-danger"> {{ $message }} </small>
                                             @enderror

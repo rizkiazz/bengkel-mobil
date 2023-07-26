@@ -16,7 +16,7 @@ class SukuCadang extends Model
         'merek',
         'satuan',
         'stock',
-        'deskripsi,
-        harga'
+        'deskripsi',
+        'harga'
     ];
 }
