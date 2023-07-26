@@ -59,7 +59,13 @@
                             <td>{{ $plg->no_polisi }}</td>
                             <td>{{ $plg->alamat }}</td>
                             <td>+62 {{ $plg->handphone }}</td>
-                            <td>{{ $plg->status }}</td>
+                            @if ($plg->status == 1)
+                                <td><span class="label label-warning">Proses</span></td>    
+                            @elseif ($plg->status == 2)
+                                <td><span class="label label-success">Done</span></td>    
+                            @else()
+                                <td><span class="label label-info">Pending</span></td>    
+                            @endif
                             <td>
                                 <a href="{{ url('admin/pelanggan/'.$plg->id.'/edit') }}" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                                 <a href="#" data-nama="{{ $plg->nama }}" data-id="{{ $plg->id }}" class="btn btn-danger confirm-delete" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-alt"></i></a>
